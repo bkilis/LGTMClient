@@ -1,13 +1,29 @@
-﻿namespace LGTMClient.ApiModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LGTMClient.ApiModels
 {
     public class ProductsApiModel
     {
+        [Display(Name = "Product ID")]
         public int productId { get; set; }
+
+        [Display(Name = "Name")]
         public string name { get; set; } = null!;
+
+        [Display(Name = "Description")]
         public string description { get; set; } = null!;
+
+        [Display(Name = "Quantity")]
         public int quantity { get; set; }
+
+        [Display(Name = "Price")]
         public decimal price { get; set; }
+
+        [Display(Name = "Average Rating Value")]
         public decimal? averageRatingValue { get; set; }
+
+        [Display(Name = "Product Category ID")]
+        public int productCategoryId { get; set; }
 
         public string? Validate()
         {

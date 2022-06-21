@@ -8,32 +8,6 @@
     <p>Product Management Panel</p>
 </div>
 
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">Product ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Price</th>
-        <th scope="col">Average Rating</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var product in Model)
-    {
-        <tr>
-            <th scope="row">@product.productId</th>
-            <td>@product.name</td>
-            <td>@product.description</td>
-            <td>@product.quantity</td>
-            <td>@product.price</td>
-            <td>@product.averageRatingValue</td>
-        </tr>
-    }
-    </tbody>
-</table>
-
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -44,13 +18,19 @@
             @Html.DisplayNameFor(model => model.name)
         </th>
         <th>
-            Description
+            @Html.DisplayNameFor(model => model.description)
         </th>
         <th>
-            Quantity
+            @Html.DisplayNameFor(model => model.quantity)
         </th>
         <th>
-            Price
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.averageRatingValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productCategoryId)
         </th>
         <th></th>
     </tr>
@@ -69,6 +49,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productCategoryId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.productId">Edit</a> |
