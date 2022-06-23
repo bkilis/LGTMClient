@@ -12,12 +12,14 @@ namespace LGTMClient.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IConfiguration Configuration;
         private RestClient _restClient;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
             _logger = logger;
-            _restClient = new RestClient("https://localhost:7000/api/");
+            Configuration = configuration;
+            _restClient = new RestClient(Configuration["ProductsApiUrl"]);
         }
 
         public IActionResult Index()
